@@ -20,9 +20,11 @@ PRODUCT_COPY_FILES += \
 endif
 
 ifneq ($(filter rk1126 rk356x, $(strip $(TARGET_BOARD_PLATFORM))), )
+ifneq ($(strip $(PRODUCT_ASUS_NAME)), Tinker_Board_3N)
 IQ_FILES_PATH := $(TOP)/external/camera_engine_rkaiq/iqfiles/isp21
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(IQ_FILES_PATH)/,$(TARGET_COPY_OUT_VENDOR)/etc/camera/rkisp2/)
+endif
 endif
 ifneq ($(filter rk3588, $(strip $(TARGET_BOARD_PLATFORM))), )
 IQ_FILES_PATH := $(TOP)/external/camera_engine_rkaiq/iqfiles/isp3x
